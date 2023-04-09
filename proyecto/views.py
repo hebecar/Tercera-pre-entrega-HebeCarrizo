@@ -2,8 +2,8 @@
 #from datetime import datetime
 from django.http import HttpResponse
 from django.template import Template,Context, loader 
-from proyecto.models import Consolas,accesorios,Juegos
-from django.shortcuts import render
+from proyecto.models import Consolas, accesorios, Juegos
+from django.shortcuts import render 
 
 
 
@@ -27,19 +27,23 @@ def mi_primer_template(request):
     template_renderizado= template.render(contexto)
     return HttpResponse (template_renderizado)
 
-#def crear_accesorios(requets):
-#   accesorio= accesorios(Nombre= 'Joystick',descripcion='inalambrico para PS4')
-#    print(accesorio.Nombre)
- #   print(accesorio.descripcion)
-  #  accesorio.save()
-   # datos={'accesorio':accesorio}
-    #template =loader.get_template(r'crear_accesorios.html')
-    #template_renderizado = template.render (datos)
-    #return HttpResponse(template_renderizado)
+def juegos(request):
+    datos={'nombre': ' God of War II'}
+    return render(request,r'proyecto/crear_juegos.html',datos)
+    
 
-#def crear_consola(request):
-#    datos={'nombre': 'PS4'}
-#    return render(request, r'crear_consola.html',datos)
+
+def crear_accesorios(requets):
+    datos ={'nombre': 'joystick'}
+    return render (requets, r'proyecto/crear_accesorios.html',datos)
+    
+   
+def crear_consola(request):
+    datos={'nombre': 'PS4'}
+#   template = loader.get_template(r'crear_consola.html')
+#   template_renderizado = template.render(datos)
+#   return HttpResponse (template_renderizado)
+    return render(request, r'proyecto/crear_consola.html',datos)
 
 
 
