@@ -8,7 +8,9 @@ from django.shortcuts import render
 
 
 def mi_vista(request):
-    return HttpResponse ('<h1>Mi primera vista</h1>') # apertura de una etiqueta 
+#    return HttpResponse ('<h1>Mi primera vista</h1>') # apertura de una etiqueta 
+    return render (request,'proyecto/index.html')
+
 
 #version con httpresponse
 #def mostrar_fecha(request):
@@ -27,7 +29,7 @@ def mi_primer_template(request):
     template_renderizado= template.render(contexto)
     return HttpResponse (template_renderizado)
 
-def juegos(request):
+def crear_juegos(request):
     datos={'nombre': ' God of War II'}
     return render(request,r'proyecto/crear_juegos.html',datos)
     
